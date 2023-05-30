@@ -23,6 +23,8 @@ def parse_mod_file(file):
     split = file.split("_")
     name = "_".join(split[:-1])
     version = split[-1].split(".")[:-1]
+    if version[0].isdigit():
+        version = [int(x) for x in version]
 
     return {"file": file, "name": name, "version": version}
 
